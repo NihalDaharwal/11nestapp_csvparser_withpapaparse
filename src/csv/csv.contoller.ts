@@ -1,6 +1,7 @@
 import {
   BadRequestException,
   Controller,
+  Get,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -12,7 +13,13 @@ import { CsvService } from './csv.services';
 
 @Controller()
 export class CsvController {
-  constructor(private readonly appService: CsvService) {}
+  constructor(private readonly csvService: CsvService) {}
+
+  @Get('getcsv')
+  getCsv() {
+    // return 'working';
+    return this.csvService.getCsv();
+  }
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))

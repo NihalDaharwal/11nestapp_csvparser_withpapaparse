@@ -1,6 +1,7 @@
 import {
   BadRequestException,
   Controller,
+  Get,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -11,7 +12,13 @@ import { Csv2Service } from './csv2.services';
 
 @Controller()
 export class Csv2Controller {
-  constructor(private readonly csvService: Csv2Service) {}
+  constructor(private readonly csv2Service: Csv2Service) {}
+
+  @Get('getcsv')
+  getCsv2() {
+    // return 'working';
+    return this.csv2Service.getCsv2();
+  }
 
   @Post('upload2')
   @UseInterceptors(FileInterceptor('file'))
@@ -22,7 +29,7 @@ export class Csv2Controller {
 
     const csvData = file.buffer.toString(); // Convert file buffer to string
 
-    const parsedData = this.csvService.parseCsvData(csvData, {
+    const parsedData = this.csv2Service.parseCsvData(csvData, {
       complete: (result) => {
         // Process the parsed CSV data
         console.log(result.data);
