@@ -14,7 +14,7 @@ import { Csv2Service } from './csv2.services';
 export class Csv2Controller {
   constructor(private readonly csv2Service: Csv2Service) {}
 
-  @Get('getcsv')
+  @Get('getcsv2')
   getCsv2() {
     // return 'working';
     return this.csv2Service.getCsv2();
