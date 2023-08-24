@@ -4,7 +4,7 @@ import * as papa from 'papaparse';
 @Injectable()
 export class Csv2Service {
   getCsv2() {
-    return 'working propely deployed in vercel';
+    return 'csv2 file data fetched';
   }
 
   parseCsvData(csvData: string, options: papa.ParseConfig): any {
